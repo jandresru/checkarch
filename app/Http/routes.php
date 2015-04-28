@@ -17,6 +17,8 @@ Route::get('home', 'HomeController@index');
 
 Route::get('architecs', 'ArchitecsController@index');
 
+Route::get('architec/{id}', 'ArchitecsController@architec');
+
 Route::get('projects', 'ProjectsController@index');
 
 //Route::get('my-profile', 'UserController@myProfile');

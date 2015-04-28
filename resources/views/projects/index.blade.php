@@ -8,7 +8,7 @@
 				<div class="panel-heading">Projects</div>
 
 				<div class="panel-body">
-					Projects... prova
+					Projects... 
 				</div>
 			</div>
 		</div>

@@ -21,6 +21,13 @@ class ArchitecsController extends Controller {
 		return view('architecs.index', compact('users'));
 	}
 
+	public function architec($id)
+	{
+		$user = User::findOrFail($id);
+
+		return view('architecs.architec', compact('user'));
+	}
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
