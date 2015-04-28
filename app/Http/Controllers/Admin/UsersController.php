@@ -1,0 +1,116 @@
+<?php namespace App\Http\Controllers\Admin;
+
+use App\Http\Requests;
+use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\EditUserRequest;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Routing\Route;
+
+use App\User;
+
+class UsersController extends Controller {
+
+	public function __construct(){
+		$this->beforeFilter('@findUser',['only' => ['show','edit','update','destroy']]);
+	}
+
+	public function findUser(Route $route){
+		$this->user = User::findOrFail($route->getParameter('users'));
+	}
+
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
+	public function index(Request $request)
+	{
+		$users = User::FilterAndPaginate($request->get('name'), $request->get('type')); 
+
+		return view('admin.users.index', compact('users'));
+	}
+
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return Response
+	 */
+	public function create()
+	{
+		return view('admin.users.create');
+	}
+
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @return Response
+	 */
+	public function store(CreateUserRequest $request)
+	{
+		$user = User::create($request->all());
+		return \Redirect::route('admin.users.index');
+	}
+
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function show($id)
+	{
+		//
+	}
+
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function edit()
+	{
+		return view('admin.users.edit')->with('user',$this->user);
+	}
+
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function update(EditUserRequest $request)
+	{
+		$this->user->fill($request->all());
+		$this->user->save();
+		
+		return \Redirect::route('admin.users.index');
+	}
+
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function destroy($id, Request $request)
+	{
+		$this->user->delete();
+
+		$message = 'El usuario ' . $this->user->name . ' fue eliminado.';
+
+		if($request->ajax()){
+			return response()->json([
+					'id' => $this->user->id,
+					'message' => $message
+				]);
+		}
+
+		Session::flash('message', $message);
+
+		return \Redirect::route('admin.users.index');
+	}
+
+}
