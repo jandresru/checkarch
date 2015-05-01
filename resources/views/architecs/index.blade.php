@@ -11,9 +11,9 @@
 				<div class="panel-body">
 					<div class="row">
 					@foreach($users as $user)
-						<div class="col-sm-6 col-md-4">
+						<div class="col-sm-6 col-md-3">
 							<div class="thumbnail">
-								<img src="/images/prova.png" alt="Test">
+								<img src="/images/avatar-{{ rand(1,2) }}.png" alt="Test">
 								<div class="caption">
 									<h3><a href="{{ url('/architec/' . $user->id) }}">{{ $user->name }}</a></h3>
 									<p>Soy la mejor arquitecta del Mundo. Sin duda.</p>
