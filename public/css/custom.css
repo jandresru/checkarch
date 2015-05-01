@@ -1,14 +1,17 @@
-body{
-	padding-top:100px;
-}
-
-.navbar-brand, .navbar-nav li a {
-	line-height: 75px;
-	height: 75px;
-	padding-top: 0;
-}
-
-.navbar-brand img {
-  vertical-align: middle;
-  display: initial;
-}
+body{ padding-top:100px; }
+.navbar-brand, .navbar-nav li a { line-height: 75px; height: 75px; padding-top: 0; }
+.navbar-brand img { vertical-align: middle; display: initial; }
+.breadcrumb{ font-size:18px; }
+a{ color: #83d9b2; }
+a:hover{ color: #68a589; }
+.btn-primary { color: #ffffff; background-color: #83d9b2; border-color: #68a589; }
+.btn-primary .badge{ color: #68a589; }
+.btn-primary:hover { color: #ffffff; background-color: #68a589; border-color: #68a589; }
+.pagination > .active > a, 
+.pagination > .active > span, 
+.pagination > .active > a:hover, 
+.pagination > .active > span:hover, 
+.pagination > .active > a:focus, 
+.pagination > .active > span:focus { background-color: #68a589; border-color: #68a589; }
+.pagination > li > a, 
+.pagination > li > span { color: #68a589; }

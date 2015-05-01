@@ -13,6 +13,7 @@ class UserTableSeeder extends Seeder {
 
 			\DB::table('users')->insert(array(
 				'name' => $faker->firstName,
+				'surname' => $faker->lastName,
 				'email' => $faker->email,
 				'type' => 'user',
 				'password' => \Hash::make('1234')
