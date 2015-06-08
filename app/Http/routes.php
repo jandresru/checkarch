@@ -19,6 +19,9 @@ Route::get('architecs', 'ArchitecsController@index');
 
 Route::get('architec/{id}', 'ArchitecsController@architec');
 
+Route::get('architec/{id}/{project}', 'ArchitecsController@project');
+
+
 Route::get('projects', 'ProjectsController@index');
 
 //Route::get('my-profile', 'UserController@myProfile');

@@ -28,6 +28,14 @@ class ArchitecsController extends Controller {
 		return view('architecs.architec', compact('user'));
 	}
 
+	public function project($id,$project)
+	{
+		$user = User::findOrFail($id);
+		$project = 2;
+
+		return view('architecs.project', compact('user'));
+	}
+
 	/**
 	 * Show the form for creating a new resource.
 	 *

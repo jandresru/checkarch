@@ -11,7 +11,8 @@
 		"phpunit/phpunit": "~4.0",
 		"phpspec/phpspec": "~2.1",
 		"fzaninotto/faker": "1.5.*@dev",
-		"laravelcollective/html": "~5.0"
+		"laravelcollective/html": "~5.0",
+		"bootstrap-plus/bootstrap-media-lightbox": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
